@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girlfriend Day • 1 Agustus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF4EC;
+    --blush:#F4D8DE;
+    --rose:#D9A0AC;
+    --wine:#6E2A38;
+    --rosegold:#C6996B;
+    --ink:#3C2226;
+    --vinyl-dark:#241318;
+    --vinyl-groove:#3a2229;
+    --shadow-soft: 0 20px 50px rgba(110,42,56,0.18);
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(244,216,222,0.6), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(198,153,107,0.18), transparent 50%),
+      var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    overflow-x:hidden;
+  }
+
+  /* ---------- Decorative floating petals in background ---------- */
+  .petal-field{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+  }
+  .petal-field span{
+    position:absolute;
+    top:-40px;
+    width:14px;
+    height:18px;
+    background:var(--rose);
+    opacity:0.35;
+    border-radius:0 60% 0 60%;
+    animation:fall linear infinite;
+  }
+  @keyframes fall{
+    to{ transform: translateY(115vh) rotate(400deg); }
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding:64px 20px 30px;
+  }
+  .eyebrow{
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--rosegold);
+    font-weight:500;
+  }
+  h1{
+    font-family:'Playfair Display', serif;
+    font-weight:600;
+    font-size:clamp(38px,7vw,72px);
+    margin:10px 0 6px;
+    color:var(--wine);
+    line-height:1.05;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--rosegold);
+  }
+  .subtitle{
+    max-width:520px;
+    margin:0 auto;
+    font-size:15px;
+    color:#7a4b53;
+    line-height:1.7;
+  }
+
+  /* ============ VINYL PLAYER ============ */
+  .player-wrap{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:center;
+    padding:30px 20px 10px;
+  }
+  .turntable{
+    position:relative;
+    width:min(78vw, 360px);
+    aspect-ratio:1/1;
+    background:
+      linear-gradient(155deg, #fff6ec, #f1ddc9 60%, #e4c8a5);
+    border-radius:26px;
+    box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(198,153,107,0.4);
+    padding:26px;
+  }
+  .turntable::before{ /* subtle wood-ish texture lines */
+    content:"";
+    position:absolute; inset:0;
+    border-radius:26px;
+    background: repeating-linear-gradient(115deg, rgba(255,255,255,0.15) 0px, transparent 2px, transparent 6px);
+    pointer-events:none;
+  }
+
+  .platter{
+    position:relative;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+  }
+
+  .vinyl{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:
+      repeating-radial-gradient(circle at center,
+        var(--vinyl-groove) 0px, var(--vinyl-groove) 1px,
+        var(--vinyl-dark) 2px, var(--vinyl-dark) 5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35), inset 0 0 30px rgba(0,0,0,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: spin 20s linear infinite;
+    animation-play-state: paused;
+  }
+  .vinyl.spinning{ animation-play-state: running; }
+
+  .vinyl::after{ /* glossy highlight */
+    content:"";
+    position:absolute;
+    top:6%; left:10%;
+    width:35%; height:35%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+
+  @keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+  }
+
+  /* Label + blooming flower in the center of the vinyl */
+  .label{
+    position:relative;
+    width:34%;
+    height:34%;
+    background: radial-gradient(circle, var(--blush), var(--rose));
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.7), 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .label svg{ width:78%; height:78%; overflow:visible; }
+  .petal{
+    transform-origin: 50px 50px;
+    transform: scale(0.15);
+    opacity:0.5;
+    transition: transform 0.9s cubic-bezier(.34,1.56,.64,1), opacity 0.9s ease;
+  }
+  .vinyl.spinning .petal{ transform: scale(1); opacity:1; }
+  .petal:nth-child(1){ transition-delay: 0.05s; }
+  .petal:nth-child(2){ transition-delay: 0.15s; }
+  .petal:nth-child(3){ transition-delay: 0.25s; }
+  .petal:nth-child(4){ transition-delay: 0.35s; }
+  .petal:nth-child(5){ transition-delay: 0.45s; }
+  .flower-center{
+    transform-origin:50px 50px;
+    transform: scale(0);
+    transition: transform 0.6s ease 0.55s;
+  }
+  .vinyl.spinning .flower-center{ transform: scale(1); }
+
+  /* Tonearm */
+  .tonearm{
+    position:absolute;
+    top:-4%;
+    right:2%;
+    width:46%;
+    height:46%;
+    transform: rotate(-32deg);
+    transform-origin: 88% 12%;
+    transition: transform 0.8s cubic-bezier(.65,.05,.36,1);
+    z-index:3;
+    pointer-events:none;
+  }
+  .turntable.playing .tonearm{ transform: rotate(-6deg); }
+  .tonearm .pivot{
+    position:absolute; top:6%; right:6%;
+    width:16px; height:16px;
+    background: var(--rosegold);
+    border-radius:50%;
+    box-shadow:0 2px 4px rgba(0,0,0,0.3);
+  }
+  .tonearm .arm{
+    position:absolute;
+    top:11%; right:12%;
+    width:4px;
+    height:78%;
+    background: linear-gradient(180deg, var(--rosegold), #a67c50);
+    border-radius:4px;
+    transform-origin: top center;
+  }
+  .tonearm .head{
+    position:absolute;
+    bottom:1%;
+    left:50%;
+    transform:translateX(-70%);
+    width:14px; height:9px;
+    background: var(--wine);
+    border-radius:2px;
+  }
+
+  /* Play/Pause button */
+  .controls{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:center;
+    margin-top:26px;
+  }
+  #playBtn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background: linear-gradient(135deg, var(--wine), #8a3b4b);
+    color:#fdf3f0;
+    border:none;
+    padding:14px 30px;
+    border-radius:999px;
+    font-family:'Jost', sans-serif;
+    font-size:14px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow: 0 12px 24px rgba(110,42,56,0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  #playBtn:hover{ transform: translateY(-2px); box-shadow: 0 16px 30px rgba(110,42,56,0.38); }
+  #playBtn:active{ transform: translateY(0); }
+  #playBtn .icon{ width:16px; height:16px; display:inline-flex; }
+
+  .now-playing{
+    text-align:center;
+    margin-top:14px;
+    font-size:12.5px;
+    color:#a06a73;
+    letter-spacing:0.05em;
+    min-height:16px;
+  }
+
+  /* ============ GALLERY ============ */
+  .gallery-section{
+    position:relative;
+    z-index:1;
+    padding:70px 20px 30px;
+    text-align:center;
+  }
+  .gallery-title{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:clamp(24px,4vw,34px);
+    color:var(--wine);
+    margin-bottom:6px;
+  }
+  .gallery-hint{
+    font-size:13px;
+    color:#a06a73;
+    margin-bottom:36px;
+  }
+  .gallery{
+    max-width:920px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
+  }
+  .photo{
+    position:relative;
+    aspect-ratio:3/4;
+    border-radius:16px;
+    overflow:hidden;
+    background:var(--blush);
+    box-shadow: 0 14px 30px rgba(110,42,56,0.14);
+    opacity:0;
+    transform:scale(0.82);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.34,1.56,.64,1);
+  }
+  .photo.revealed{ opacity:1; transform:scale(1); }
+  .photo img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo .caption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:10px 12px;
+    font-size:12px;
+    color:#fff;
+    background:linear-gradient(0deg, rgba(60,20,28,0.7), transparent);
+  }
+
+  /* ============ MESSAGE ============ */
+  .message{
+    position:relative;
+    z-index:1;
+    max-width:560px;
+    margin:60px auto 0;
+    padding:34px 30px;
+    text-align:center;
+    background: rgba(255,255,255,0.55);
+    border:1px solid rgba(198,153,107,0.35);
+    border-radius:22px;
+    backdrop-filter: blur(3px);
+  }
+  .message p{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:18px;
+    line-height:1.7;
+    color:var(--wine);
+    margin:0;
+  }
+  .message .signature{
+    display:block;
+    margin-top:14px;
+    font-family:'Jost',sans-serif;
+    font-style:normal;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--rosegold);
+  }
+
+  footer{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding:50px 20px 40px;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:#b98894;
+    text-transform:uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Kelopak bunga jatuh dekoratif di background -->
+<div class="petal-field" id="petalField"></div>
+
+<header>
+  <div class="eyebrow">1 Agustus</div>
+  <h1>Selamat <em>Girlfriend Day</em></h1>
+  <p class="subtitle">
+    <!-- GANTI TEKS UCAPAN UTAMA DI SINI -->
+    Putar piringan, biarkan musiknya mengalun, dan lihat bunga mekar sebagaimana cinta kita bertumbuh setiap hari.
+  </p>
+</header>
+
+<section class="player-wrap">
+  <div class="turntable" id="turntable">
+    <div class="platter">
+      <div class="vinyl" id="vinyl">
+        <div class="tonearm" id="tonearm">
+          <div class="pivot"></div>
+          <div class="arm"></div>
+          <div class="head"></div>
+        </div>
+        <div class="label">
+          <!-- Bunga mekar: SVG sederhana, 5 kelopak + pusat -->
+          <svg viewBox="0 0 100 100">
+            <g>
+              <ellipse class="petal" cx="50" cy="28" rx="10" ry="18" fill="#fff5f7"/>
+              <ellipse class="petal" cx="50" cy="28" rx="10" ry="18" fill="#fbdfe4" transform="rotate(72 50 50)"/>
+              <ellipse class="petal" cx="50" cy="28" rx="10" ry="18" fill="#fff5f7" transform="rotate(144 50 50)"/>
+              <ellipse class="petal" cx="50" cy="28" rx="10" ry="18" fill="#fbdfe4" transform="rotate(216 50 50)"/>
+              <ellipse class="petal" cx="50" cy="28" rx="10" ry="18" fill="#fff5f7" transform="rotate(288 50 50)"/>
+              <circle class="flower-center" cx="50" cy="50" r="9" fill="#C6996B"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="controls">
+  <button id="playBtn" aria-pressed="false">
+    <span class="icon" id="btnIcon">
+      <!-- ikon play/pause sederhana via SVG, otomatis berubah lewat JS -->
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>
+    </span>
+    <span id="btnLabel">Putar Lagu</span>
+  </button>
+</div>
+<div class="now-playing" id="nowPlaying"></div>
+
+<!-- GANTI SUMBER LAGU DI SINI (gunakan file mp3 royalty-free / lagu favorit kalian) -->
+<audio id="audio" loop preload="none">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<section class="gallery-section">
+  <div class="gallery-title">Kenangan Kita</div>
+  <div class="gallery-hint">Galeri akan terungkap perlahan saat musik diputar</div>
+  <div class="gallery" id="gallery">
+    <!-- GANTI URL GAMBAR DI SETIAP .photo img DENGAN FOTO PRIBADI KALIAN -->
+    <div class="photo"><img src="https://picsum.photos/seed/gf1/400/520" alt="Kenangan 1"><div class="caption">Hari pertama kita</div></div>
+    <div class="photo"><img src="https://picsum.photos/seed/gf2/400/520" alt="Kenangan 2"><div class="caption">Liburan kecil</div></div>
+    <div class="photo"><img src="https://picsum.photos/seed/gf3/400/520" alt="Kenangan 3"><div class="caption">Senja favorit</div></div>
+    <div class="photo"><img src="https://picsum.photos/seed/gf4/400/520" alt="Kenangan 4"><div class="caption">Tertawa bersama</div></div>
+    <div class="photo"><img src="https://picsum.photos/seed/gf5/400/520" alt="Kenangan 5"><div class="caption">Momen sederhana</div></div>
+    <div class="photo"><img src="https://picsum.photos/seed/gf6/400/520" alt="Kenangan 6"><div class="caption">Selalu bersama</div></div>
+  </div>
+</section>
+
+<div class="message">
+  <!-- GANTI ISI PESAN / UCAPAN PANJANG DI SINI -->
+  <p>
+    Terima kasih sudah menjadi alasan setiap hari terasa lebih hangat.
+    Selamat Girlfriend Day, sayang — semoga cinta ini terus mekar seperti bunga di piringan ini.
+  </p>
+  <span class="signature">Dengan cinta, selalu</span>
+</div>
+
+<footer>Made with love • 1 Agustus</footer>
+
+<script>
+  // ---------- Kelopak jatuh dekoratif ----------
+  const field = document.getElementById('petalField');
+  const PETAL_COUNT = 12;
+  for (let i = 0; i < PETAL_COUNT; i++) {
+    const p = document.createElement('span');
+    const left = Math.random() * 100;
+    const duration = 20 + Math.random() * 10;
+    const delay = Math.random() * 25;
+    const size = 8 + Math.random() * 10;
+    p.style.left = left + 'vw';
+    p.style.width = size + 'px';
+    p.style.height = (size * 1.3) + 'px';
+    p.style.animationDuration = duration + 's';
+    p.style.animationDelay = delay + 's';
+    p.style.background = Math.random() > 0.5 ? '#D9A0AC' : '#C6996B';
+    field.appendChild(p);
+  }
+
+  // ---------- Vinyl player logic ----------
+  const audio = document.getElementById('audio');
+  const turntable = document.getElementById('turntable');
+  const vinyl = document.getElementById('vinyl');
+  const playBtn = document.getElementById('playBtn');
+  const btnIcon = document.getElementById('btnIcon');
+  const btnLabel = document.getElementById('btnLabel');
+  const nowPlaying = document.getElementById('nowPlaying');
+  const photos = Array.from(document.querySelectorAll('.photo'));
+
+  const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>';
+  const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+
+  let isPlaying = false;
+  let revealTimeouts = [];
+
+  function revealGalleryStaggered() {
+    photos.forEach((photo, i) => {
+      const t = setTimeout(() => photo.classList.add('revealed'), 300 + i * 350);
+      revealTimeouts.push(t);
+    });
+  }
+
+  function resetGallery() {
+    revealTimeouts.forEach(clearTimeout);
+    revealTimeouts = [];
+    photos.forEach(p => p.classList.remove('revealed'));
+  }
+
+  function play() {
+    isPlaying = true;
+    turntable.classList.add('playing');
+    vinyl.classList.add('spinning');
+    playBtn.setAttribute('aria-pressed', 'true');
+    btnIcon.innerHTML = ICON_PAUSE;
+    btnLabel.textContent = 'Jeda';
+    nowPlaying.textContent = '♪ Sedang diputar...';
+    audio.play().catch(() => {
+      // Autoplay/CORS mungkin diblokir browser; UI tetap berjalan
+      nowPlaying.textContent = 'Ketuk lagi jika audio belum terdengar';
+    });
+    revealGalleryStaggered();
+  }
+
+  function pause() {
+    isPlaying = false;
+    turntable.classList.remove('playing');
+    vinyl.classList.remove('spinning');
+    playBtn.setAttribute('aria-pressed', 'false');
+    btnIcon.innerHTML = ICON_PLAY;
+    btnLabel.textContent = 'Putar Lagu';
+    nowPlaying.textContent = '';
+    audio.pause();
+    resetGallery();
+  }
+
+  playBtn.addEventListener('click', () => {
+    isPlaying ? pause() : play();
+  });
+</script>
+
+</body>
+</html>
