@@ -239,6 +239,25 @@
   .theater-mute{ transition: background .3s ease, border-color .3s ease; }
   .theater-mute:hover{ background: rgba(0,0,0,0.75); border-color: rgba(247,198,222,0.5); }
 
+  /* ===== Theater play button (klik untuk memutar, tidak autoplay) ===== */
+  .theater-play-btn{
+    position:absolute; inset:0; z-index:15;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(11,7,18,0.28);
+    transition: opacity .3s ease, background .3s ease;
+    cursor:pointer; border:none; padding:0;
+  }
+  .theater-play-btn:hover{ background: rgba(11,7,18,0.4); }
+  .theater-play-circle{
+    width:64px; height:64px; border-radius:50%;
+    background: rgba(21,15,34,0.75); border:1px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 10px 40px -10px rgba(232,149,194,0.55);
+    transition: transform .25s ease;
+  }
+  .theater-play-btn:hover .theater-play-circle{ transform: scale(1.08); }
+  .theater-play-btn.is-hidden{ opacity:0; pointer-events:none; }
+
   @keyframes blink-hint{
     0%,100%{ opacity:0.25; transform:translate(-50%,0); }
     50%{ opacity:1; transform:translate(-50%,6px); }
@@ -413,7 +432,7 @@
     </div>
 
     <p class="text-[10px] text-[var(--silver)]/25 mt-12 tracking-plaque">SABAR YA, SEBENTAR LAGI ✦</p>
-    <p class="text-[9px] text-[var(--silver)]/15 mt-2 tracking-plaque">KETUK LAYAR UNTUK SUARA</p>
+    <p class="text-[9px] text-[var(--silver)]/15 mt-2 tracking-plaque">Pakai Headphone biar Kak Desy gak denger🤫</p>
   </div>
 
   <!-- Sound effect untuk 10 detik terakhir: ganti src dengan file suaramu (contoh: ticking clock / heartbeat) -->
@@ -500,7 +519,7 @@
   <header class="pt-24 pb-12 px-6 text-center" data-aos="fade-in">
     <p class="tracking-wide2 text-[11px] text-[var(--lavender)] mb-3">— WELCOME TO —</p>
     <h2 class="font-display italic text-3xl md:text-4xl">The Gallery of Us</h2>
-    <p class="text-xs text-[var(--silver)]/40 mt-3 max-w-md mx-auto">Setiap ruangan menyimpan satu babak dari cerita kita. Gulir perlahan, dan lihat kembali.</p>
+    <p class="text-xs text-[var(--silver)]/40 mt-3 max-w-md mx-auto">Setiap ruangan menyimpan satu babak dari cerita kita. Scroll pelan-pelan ya bebe, dan cintai aku kembali :>.</p>
   </header>
 
   <!-- ===== Divider: kawaii cat (original, bukan Hello Kitty) ===== -->
@@ -563,60 +582,81 @@
     <div class="text-center mb-12" data-aos="fade-up">
       <p class="tracking-wide2 text-[10px] text-[var(--lavender)] mb-2">HALL I</p>
       <h3 class="font-display italic text-3xl">The Beginning</h3>
-      <p class="text-xs text-[var(--silver)]/40 mt-2">Di mana semuanya bermula.</p>
+      <p class="text-xs text-[var(--silver)]/40 mt-2">Semua berawal dari hal sederhana.</p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
       <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="0">
-        <img src="https://placehold.co/500x650/1b1329/f7c6de?text=Foto+01" class="w-full h-56 object-cover opacity-80" alt="Momen 1">
+        <img src="Assets/beginning/photo/beg01.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 1">
         <div class="p-3">
           <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 01</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">DoRei Date ♡</p>
         </div>
       </div>
       <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://placehold.co/500x650/1b1329/c8b6f5?text=Foto+02" class="w-full h-56 object-cover opacity-80" alt="Momen 2">
+        <img src="Assets/beginning/photo/beg02.JPG" class="w-full h-56 object-cover opacity-80" alt="Momen 2">
         <div class="p-3">
           <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 02</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">Princess di datangin penjahat asing</p>
         </div>
       </div>
       <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://placehold.co/500x650/1b1329/f7c6de?text=Foto+03" class="w-full h-56 object-cover opacity-80" alt="Momen 3">
+        <img src="Assets/beginning/photo/beg03.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 3">
         <div class="p-3">
           <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 03</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">First Meet Remake</p>
+        </div>
+      </div>
+      <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="200">
+        <img src="Assets/beginning/photo/beg04.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 3">
+        <div class="p-3">
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 04</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">First Meet Remake</p>
+        </div>
+      </div>
+      <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="200">
+        <img src="Assets/beginning/photo/beg05.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 3">
+        <div class="p-3">
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 05</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">First Meet Remake</p>
+        </div>
+      </div>
+      <div class="frame rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="200">
+        <img src="Assets/beginning/photo/beg06.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 3">
+        <div class="p-3">
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 06</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">First Meet Remake</p>
         </div>
       </div>
       <div class="frame rounded-xl overflow-hidden cursor-paw col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://placehold.co/500x650/1b1329/c8b6f5?text=Foto+04" class="w-full h-56 object-cover opacity-80" alt="Momen 4">
+        <img src="Assets/beginning/photo/beg07.jpg" class="w-full h-56 object-cover opacity-80" alt="Momen 4">
         <div class="p-3">
-          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 04</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p>
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 07</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">Hunter Ipad Kid</p>
         </div>
       </div>
       <div class="frame gallery-video-wrap rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="400">
         <!-- Video: ganti src di <source> dengan video kalian -->
-        <video class="gallery-video w-full h-56 object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x650/1b1329/f7c6de?text=Video+05">
-          <source src="Assets/beginning/vid/vd01.mp4" type="video/mp4">
+        <video class="gallery-video w-full h-56 object-cover opacity-90" muted loop playsinline preload="metadata" poster="Assets/f7c6de?text=Video+05">
+          <source src="Assets/beginning/vid/love.mp4" type="video/mp4">
         </video>
         <span class="gallery-sound-badge">🔇</span>
         <span class="gallery-expand-hint">Klik untuk perbesar</span>
         <div class="p-3">
-          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 05 · VIDEO</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p>
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 08 · VIDEO</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">Before pulang kampunk pertama kali</p>
         </div>
       </div>
       <div class="frame gallery-video-wrap rounded-xl overflow-hidden cursor-paw" data-aos="fade-up" data-aos-delay="400">
         <!-- Video: ganti src di <source> dengan video kalian -->
-        <video class="gallery-video w-full h-56 object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x650/1b1329/f7c6de?text=Video+05">
-          <source src="Assets/beginning/vid/vid03.mp4" type="video/mp4">
+        <video class="gallery-video w-full h-56 object-cover opacity-90" muted loop playsinline preload="metadata" poster="Assets/f7c6de?text=Video+05">
+          <source src="Assets/beginning/vid/sweetheart.mp4" type="video/mp4">
         </video>
         <span class="gallery-sound-badge">🔇</span>
         <span class="gallery-expand-hint">Klik untuk perbesar</span>
         <div class="p-3">
-          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 05 · VIDEO</p>
-          <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p>
+          <p class="plaque text-[10px] text-[var(--silver)]/40">NO. 09 · VIDEO</p>
+          <p class="text-xs text-[var(--silver)]/80 font-display italic">SC after setelah comebackkk</p>
         </div>
       </div>
     </div>
@@ -633,39 +673,105 @@
     <div class="divider-line"></div>
   </div>
 
-  <!-- ===== HALL 2 — CO-OP ADVENTURES ===== -->
-  <div class="narration-block min-h-[38vh] md:min-h-[46vh] flex items-center justify-center px-6" data-narration="Lalu perjalanan itu berlanjut, dan kita mulai menjelajah dunia berdua.">
+  <!-- ===== HALL 2 — OUR ADVENTURES ===== -->
+  <div class="narration-block min-h-[38vh] md:min-h-[46vh] flex items-center justify-center px-6" data-narration="Akhirnya kita mulai menjelajahi semua tempat.">
     <p class="narration-text font-display italic text-xl md:text-2xl text-center max-w-md text-[var(--lavender)]"><span class="narration-cursor">|</span></p>
   </div>
 
   <section id="hall-2" class="max-w-5xl mx-auto px-6 py-16">
     <div class="text-center mb-12" data-aos="fade-up">
       <p class="tracking-wide2 text-[10px] text-[var(--lavender)] mb-2">HALL II</p>
-      <h3 class="font-display italic text-3xl">Co-Op Adventures</h3>
-      <p class="text-xs text-[var(--silver)]/40 mt-2">Level yang selalu lebih seru saat dimainkan berdua.</p>
+      <h3 class="font-display italic text-3xl">Our Adventures</h3>
+      <p class="text-xs text-[var(--silver)]/40 mt-2">Keseruan yang kita lakukan selalu jadi kenangan yang tak terlupakan.</p>
     </div>
 
     <!-- masonry-style via column widths -->
     <div class="columns-2 md:columns-3 gap-5 space-y-5">
       <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up">
-        <img src="https://placehold.co/500x700/1b1329/f7c6de?text=Foto+06" class="w-full object-cover opacity-80" alt="Momen 6">
-        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 06</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+        <img src="Assets/journey/bl.jpg" class="w-full object-cover opacity-80" alt="Momen 6">
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 06</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Billiard Date</p></div>
       </div>
-      <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://placehold.co/500x500/1b1329/c8b6f5?text=Foto+07" class="w-full object-cover opacity-80" alt="Momen 7">
-        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 07</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+       <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/renang-2.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
       </div>
-      <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://placehold.co/500x600/1b1329/f7c6de?text=Foto+08" class="w-full object-cover opacity-80" alt="Momen 8">
-        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 08</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+      <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/meet up again.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Jemput di st. Tanah Abang</p></div>
       </div>
-      <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://placehold.co/500x450/1b1329/c8b6f5?text=Foto+09" class="w-full object-cover opacity-80" alt="Momen 9">
-        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 09</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+      <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/bunga.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Bunga untuk Pulang🥀</p></div>
       </div>
       <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://placehold.co/500x650/1b1329/f7c6de?text=Foto+10" class="w-full object-cover opacity-80" alt="Momen 10">
+        <img src="Assets/journey/bunga.jpg" class="w-full object-cover opacity-80" alt="Momen 10">
         <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 10</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+      </div>
+      <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/helm.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
+      </div>
+    </div>
+    <div class="columns-2 my-10 md:columns-3 gap-5 space-y-5">
+      <div class="frame rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up">
+        <img src="Assets/journey/jou01.jpg" class="w-full object-cover opacity-80" alt="Momen 6">
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 06</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul foto di sini</p></div>
+      </div>
+       <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/Rexi.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
+      </div>
+       <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/bunga.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
+      </div>
+       <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/wedang.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
+      </div>
+      <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
+        <!-- Video: ganti src di <source> dengan video kalian -->
+        <video class="gallery-video w-full object-cover opacity-90" muted loop playsinline preload="metadata" poster="https://placehold.co/500x550/1b1329/c8b6f5?text=Video+11">
+          <source src="Assets/journey/gate.mp4" type="video/mp4">
+        </video>
+        <span class="gallery-sound-badge">🔇</span>
+        <span class="gallery-expand-hint">Klik untuk perbesar</span>
+        <div class="p-3"><p class="plaque text-[10px] text-[var(--silver)]/40">NO. 11 · VIDEO</p><p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video di sini</p></div>
       </div>
       <div class="frame gallery-video-wrap rounded-xl overflow-hidden break-inside-avoid cursor-paw" data-aos="fade-up" data-aos-delay="500">
         <!-- Video: ganti src di <source> dengan video kalian -->
@@ -699,7 +805,7 @@
     <div class="text-center py-12 px-6 bg-black" data-aos="fade-up">
       <p class="tracking-wide2 text-[10px] text-[var(--lavender)] mb-2">SCREENING ROOM</p>
       <h3 class="font-display italic text-3xl text-[var(--silver)]">The Theater Room</h3>
-      <p class="text-xs text-[var(--silver)]/40 mt-2">Scroll di dalam layar untuk memutar setiap reel kenangan.</p>
+      <p class="text-xs text-[var(--silver)]/40 mt-2">Scroll lalu ketuk play untuk memutar tiap reel kenangan.</p>
     </div>
 
     <div id="theater-scroll" class="relative w-full bg-black h-[80vh] md:h-[88vh] overflow-y-scroll snap-y snap-mandatory scrollbar-hide">
@@ -709,9 +815,14 @@
         <p class="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] tracking-plaque text-[var(--silver)]/40 z-20">REEL 01</p>
         <div class="video-frame-landscape relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden">
           <!-- Video: ganti src dengan video kalian -->
-          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/1280x720/0b0712/f7c6de?text=Reel+01">
+          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/720x1280/0b0712/c8b6f5?text=My+bayi gueh">
             <source src="Assets/beginning/vid/vd03.mp4" type="video/mp4">
           </video>
+          <button class="theater-play-btn" aria-label="Putar Reel 01">
+            <span class="theater-play-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#f7c6de"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
           <button class="theater-mute absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white/80 text-sm">🔇</button>
         </div>
         <div class="scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 pointer-events-none">
@@ -728,9 +839,14 @@
         <p class="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] tracking-plaque text-[var(--silver)]/40 z-20">REEL 02</p>
         <div class="video-frame-portrait relative h-full max-h-[72vh] aspect-[9/16] rounded-2xl overflow-hidden z-10">
           <!-- Video: ganti src dengan video kalian -->
-          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/720x1280/0b0712/c8b6f5?text=Reel+02">
-            <source src="video2.mp4" type="video/mp4">
+          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/720x1280/0b0712/c8b6f5?text=Baddie+imut">
+            <source src="Assets/journey/bunga.mp4" type="video/mp4">
           </video>
+          <button class="theater-play-btn" aria-label="Putar Reel 02">
+            <span class="theater-play-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#f7c6de"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
           <button class="theater-mute absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white/80 text-sm">🔇</button>
         </div>
         <div class="scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 pointer-events-none">
@@ -744,9 +860,14 @@
         <p class="absolute top-6 left-1/2 -translate-x-1/2 text-[10px] tracking-plaque text-[var(--silver)]/40 z-20">REEL 03</p>
         <div class="video-frame-landscape relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden">
           <!-- Video: ganti src dengan video kalian -->
-          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/1280x720/0b0712/f7c6de?text=Reel+03">
-            <source src="video3.mp4" type="video/mp4">
+          <video class="theater-video w-full h-full object-cover" playsinline muted loop preload="metadata" poster="https://placehold.co/720x1280/0b0712/c8b6f5?text=Princess+Guling guling">
+            <source src="Assets/journey/tawa.mp4" type="video/mp4">
           </video>
+          <button class="theater-play-btn" aria-label="Putar Reel 03">
+            <span class="theater-play-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#f7c6de"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
           <button class="theater-mute absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/50 border border-white/20 flex items-center justify-center text-white/80 text-sm">🔇</button>
         </div>
         <!-- Reel terakhir -->
@@ -788,25 +909,24 @@
     <!-- Video ucapan -->
     <div class="frame rounded-2xl overflow-hidden mb-8" data-aos="zoom-in">
       <!-- Video: ganti src di <source> dengan video ucapan kalian -->
-      <video class="w-full max-h-[420px] object-cover" controls preload="metadata" poster="https://placehold.co/800x450/1b1329/c8b6f5?text=Video+Ucapan">
-        <source src="" type="video/mp4">
+      <video class="w-full max-h-[420px] object-cover" controls preload="metadata" poster="https://placehold.co/800x450/1b1329/c8b6f5?text=Love Story">
+        <source src="Assets/theater/love.mp4" type="video/mp4">
       </video>
       <div class="p-4 text-center">
-        <p class="plaque text-[10px] text-[var(--silver)]/40">VIDEO MESSAGE</p>
-        <p class="text-xs text-[var(--silver)]/80 font-display italic">Judul video ucapan di sini</p>
+        <p class="plaque text-[10px] text-[var(--silver)]/40">Mimpi basah kita</p>
+        <p class="text-xs text-[var(--silver)]/80 font-display italic">Semoga kisah Firly & Fathir nyata untuk keluarga kita.</p>
       </div>
     </div>
 
     <div class="letter-card rounded-2xl p-8 md:p-10" data-aos="zoom-in">
       <p class="font-display italic text-lg md:text-xl leading-relaxed text-[var(--silver)]/90">
-        Untuk kamu yang sedang berulang tahun,
+        Untuk kamu jametku tercinta (Firly),
         <br><br>
-        [Tulis surat ucapan ulang tahunmu di sini. Ceritakan apa yang paling kamu syukuri darinya,
-        harapan untuk tahun barunya, dan hal-hal kecil yang membuatmu jatuh cinta berulang kali.]
+        Terima kasih ya, kamu udah bisa bertahan selama 20 tahun ini dengan pertumbuhan yang aku sendiri liat nya banggaaa banget sama kamu, aku saksi hidup yang melihat jeri payah kamu, kesibukan kamu, jatuh bangun nya kamu, aku senang selalu ada di posisi terendah ataupun tertinggi di sebelah kamu. aku juga gaakan berhenti bekerja keras demi hidup kaya raya bersama kamu. Inget, anak kita harus 4 ya 2 cewe 2 cowo jadi butuh banyak duit jadi kita harus semangat!.
         <br><br>
         Selamat ulang tahun, sayang. 🤍
       </p>
-      <p class="text-right text-xs text-[var(--silver)]/40 mt-6">— [Namamu]</p>
+      <p class="text-right text-xs text-[var(--silver)]/40 mt-6">— Jamet Kesayangan mu (Fathir)</p>
     </div>
 
     <div class="text-center mt-10">
@@ -819,10 +939,10 @@
     <div id="surprise-photo" class="hidden opacity-0 scale-95 transition-all duration-700 ease-out mt-10">
       <div class="frame rounded-2xl overflow-hidden max-w-sm mx-auto">
         <!-- Foto: ganti src di bawah dengan foto kejutanmu -->
-        <img src="https://placehold.co/600x750/1b1329/f7c6de?text=Foto+Kejutan" class="w-full object-cover" alt="Foto kejutan">
+        <img src="Assets/theater/surprise.jpeg" class="w-full object-cover" alt="Foto kejutan">
         <div class="p-4 text-center">
           <p class="plaque text-[10px] text-[var(--silver)]/40">SPECIAL RELEASE</p>
-          <p class="text-sm font-display italic text-[var(--silver)]/90">Tulis caption foto kejutan di sini</p>
+          <p class="text-sm font-display italic text-[var(--silver)]/90">Firly 2k16</p>
         </div>
       </div>
     </div>
@@ -869,7 +989,7 @@
 
   // 👉 ATUR TANGGAL & JAM BUKA DI SINI (dalam WIB / Asia/Jakarta)
   // Format WAJIB: "YYYY-MM-DDTHH:mm:ss+07:00"
-  const TARGET_DATE_WIB = "2026-08-27T22:01:00+07:00";
+  const TARGET_DATE_WIB = "2026-08-31T21:20:00+07:00";
 
   const countdownGate = document.getElementById('countdown-gate');
   const siteContent = document.getElementById('site-content');
@@ -1134,14 +1254,9 @@
   // Isi array di bawah ini dengan alasan/kalimat romantismu.
   // Saat "Claim Reward" diklik, satu kalimat akan muncul secara acak.
   const romanticReasons = [
-    "Karena kamu selalu tertawa di lelucon garingku.",
-    "Karena kamu bikin hari biasa jadi terasa spesial.",
-    "Karena .",
-    "Karena kamu.",
-    "Karena lucu.",
-    "Karena cantik.",
-    "Karena gemas.",
-  ];
+    "aku suka yg galak-galak tapi sayang banget😜",
+    "udalah gue gapunya alesan untuk ga cinta sama lu pir.",
+    ];
 
   document.getElementById('claim-btn').addEventListener('click', () => {
     const modal = document.getElementById('reward-modal');
@@ -1325,7 +1440,7 @@
     });
   }
 
-  /* ---------- Theater Room: autoplay on scroll + sequence hint ---------- */
+  /* ---------- Theater Room: klik untuk memutar (tidak autoplay) ---------- */
   const theaterScroll = document.getElementById('theater-scroll');
 
   if (theaterScroll) {
@@ -1335,41 +1450,56 @@
       const video = slide.querySelector('.theater-video');
       const hint = slide.querySelector('.scroll-hint');
       const muteBtn = slide.querySelector('.theater-mute');
+      const playBtn = slide.querySelector('.theater-play-btn');
 
       // Mute / unmute toggle per video
       if (muteBtn) {
-        muteBtn.addEventListener('click', () => {
+        muteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           video.muted = !video.muted;
           muteBtn.textContent = video.muted ? '🔇' : '🔊';
         });
       }
 
-      // Sembunyikan hint lagi begitu video diputar ulang, kecilkan bgm
+      // Tombol play besar di tengah — satu-satunya cara video mulai diputar
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          video.play().catch(() => console.log('Ganti src video Theater Room dengan file video kalian.'));
+        });
+      }
+
+      // Ketuk video saat sedang main -> pause (tombol play otomatis muncul lagi)
+      video.addEventListener('click', () => {
+        if (!video.paused) video.pause();
+      });
+
+      // Sembunyikan hint & tombol play begitu video diputar, kecilkan bgm
       video.addEventListener('play', () => {
         hint.classList.remove('show');
+        if (playBtn) playBtn.classList.add('is-hidden');
         if (isPlaying) fadeBgmTo(BGM_DUCK_VOLUME, 700);
       });
 
-      // Saat video selesai diputar: kasih indikasi kedip untuk lanjut scroll, besarkan lagi bgm
+      // Saat video selesai diputar: tombol play tampil lagi, indikasi kedip untuk lanjut scroll, besarkan lagi bgm
       video.addEventListener('ended', () => {
         hint.classList.add('show');
+        if (playBtn) playBtn.classList.remove('is-hidden');
         if (isPlaying) fadeBgmTo(BGM_NORMAL_VOLUME, 900);
       });
 
-      // Saat video di-pause manual (misal user scroll pergi), besarkan lagi bgm
+      // Saat video di-pause (manual, atau otomatis saat scroll pergi): tombol play tampil lagi, besarkan lagi bgm
       video.addEventListener('pause', () => {
+        if (playBtn) playBtn.classList.remove('is-hidden');
         if (isPlaying) fadeBgmTo(BGM_NORMAL_VOLUME, 900);
       });
     });
 
-    // IntersectionObserver: play saat masuk penuh ke layar, pause saat keluar
+    // IntersectionObserver: HANYA pause saat reel keluar layar. Tidak pernah auto-play.
     const theaterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const video = entry.target.querySelector('.theater-video');
         const hint = entry.target.querySelector('.scroll-hint');
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-          video.play().catch(() => console.log('Ganti src video Theater Room dengan file video kalian.'));
-        } else {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.75) {
           video.pause();
           if (hint) hint.classList.remove('show');
         }
